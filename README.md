@@ -91,3 +91,18 @@ public class Main {
 - [ ] Implementar novos recursos  
 - [ ] Melhorar documentação
 - [ ] Acrescentar Filas, Pilhas e Deques 
+
+## Conecte-se comigo
+
+<div align="center">
+  <a href="https://www.youtube.com/c/marcelojtelles" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" width="40" style="margin: 0 15px;"/>
+  </a>
+  <a href="https://github.com/Macelot" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png" alt="GitHub" width="40" style="margin: 0 15px;"/>
+  </a>
+  <a href="https://www.instagram.com/marcelojtelles/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="40" style="margin: 0 15px;"/>
+  </a>
+</div>
+
