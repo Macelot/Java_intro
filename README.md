@@ -48,6 +48,25 @@ Conceitos fundamentais da programação orientada a objetos, onde:
 
 ## 5. Exemplo Prático
 A aplicação prática é demonstrada com um sistema de pagamento onde uma classe base `Pagamento` é criada, permitindo a implementação de diferentes formas de pagamento sem modificar o código principal.
+```java
+abstract class Pagamento {
+    abstract void processarPagamento();
+}
+
+class Cartao extends Pagamento {
+    @Override
+    void processarPagamento() {
+        System.out.println("Pagamento via cartão processado.");
+    }
+}
+
+class Pix extends Pagamento {
+    @Override
+    void processarPagamento() {
+        System.out.println("Pagamento via Pix processado.");
+    }
+}
+```
 
 ## 6. Resumo de Conceitos
 
