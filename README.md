@@ -1,7 +1,7 @@
 # Introdução ao Java
 
 ## Sumário
-
+### Parte 1
 - [1. Introdução ao Java](#1-introdução-ao-java)
 - [2. Estrutura Básica de um Programa Java](#2-estrutura-básica-de-um-programa-java)
 - [3. Plataforma Java](#3-plataforma-java)
@@ -11,6 +11,9 @@
   - [Abstração, Encapsulamento e Polimorfismo](#abstração-encapsulamento-e-polimorfismo)
 - [5. Exemplo Prático](#5-exemplo-prático)
 - [6. Resumo de Conceitos](#6-resumo-de-conceitos)
+
+### Parte 2
+- [7. Comparator e Comparable em Java](#7comparator-e-comparable-em-java)
 
 <p align="center">
   <img src="https://cdn.thedevconf.com.br/photos/James+gosling.png" width="300">
@@ -84,6 +87,136 @@ public class Main {
     }
 }
 ```
+
+---
+# Parte2 
+
+## 7. Comparator e Comparable em Java
+
+## 🧑‍💻 **Conteúdo Programático**
+1. O que são Comparable e Comparator?
+2. Quando usar Comparable e Comparator.
+3. Implementação de Comparable.
+4. Implementação de Comparator.
+5. Exemplos Práticos.
+6. Boas Práticas.
+
+---
+
+## 📖 **1. O Que São Comparable e Comparator?**
+- **Comparable**: Interface usada para definir uma ordem natural de objetos.
+- **Comparator**: Interface utilizada para definir múltiplas formas de comparação de objetos.
+
+### 🔎 **Principais Diferenças:**
+| Aspecto       | Comparable                              | Comparator                                      |
+|----------------|----------------------------------------|-------------------------------------------------|
+| Implementação  | Na própria classe                     | Em uma classe separada                         |
+| Método         | `compareTo()`                         | `compare()`                                    |
+| Ordem          | Ordem natural                         | Ordem personalizada                            |
+| Flexibilidade  | Apenas uma implementação              | Pode criar diversas comparações               |
+
+---
+
+## 🚀 **2. Quando Usar Cada Um?**
+- **Comparable**: Quando existe uma ordem natural que faz sentido para a classe.
+- **Comparator**: Quando você precisa de diferentes critérios de comparação ou não pode modificar a classe original.
+
+---
+
+## 🛠️ **3. Implementação de Comparable**
+
+```java
+import java.util.*;
+
+class Produto implements Comparable<Produto> {
+    String nome;
+    double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    @Override
+    public int compareTo(Produto outro) {
+        return Double.compare(this.preco, outro.preco);
+    }
+
+    @Override
+    public String toString() {
+        return nome + " - R$" + preco;
+    }
+}
+
+public class TesteComparable {
+    public static void main(String[] args) {
+        List<Produto> produtos = Arrays.asList(
+            new Produto("TV", 1500.00),
+            new Produto("Notebook", 3000.00),
+            new Produto("Smartphone", 1200.00)
+        );
+        
+        Collections.sort(produtos);
+        System.out.println(produtos);
+    }
+}
+```
+
+### 🧑‍🎓 **Explicação:**
+- `compareTo()` utiliza o método `Double.compare()` para comparar preços.
+- `Collections.sort()` ordena a lista com base na implementação de `Comparable`.
+
+---
+
+## 🛠️ **4. Implementação de Comparator**
+
+```java
+import java.util.*;
+
+class ComparadorPorNome implements Comparator<Produto> {
+    @Override
+    public int compare(Produto p1, Produto p2) {
+        return p1.nome.compareTo(p2.nome);
+    }
+}
+
+public class TesteComparator {
+    public static void main(String[] args) {
+        List<Produto> produtos = Arrays.asList(
+            new Produto("TV", 1500.00),
+            new Produto("Notebook", 3000.00),
+            new Produto("Smartphone", 1200.00)
+        );
+
+        produtos.sort(new ComparadorPorNome());
+        System.out.println(produtos);
+    }
+}
+```
+
+### 🧑‍🎓 **Explicação:**
+- `Comparator` permite ordenar por nome, independentemente da lógica de preço existente.
+- `produtos.sort()` aceita um comparador como argumento.
+
+---
+
+## ✅ **5. Boas Práticas**
+- Use **Comparable** para ordem natural.
+- Use **Comparator** para múltiplas ordens ou classes externas.
+- Utilize `Comparator.comparing()` para simplificar comparações.
+
+```java
+produtos.sort(Comparator.comparing(p -> p.nome));
+```
+
+---
+
+## 🚀 **Conclusão**
+Agora você entende a importância das interfaces `Comparable` e `Comparator` e sabe como aplicá-las para resolver diferentes problemas de ordenação em Java. Pratique criando seus próprios comparadores e explore cenários do mundo real.
+
+**Boa codificação!** 🖥️
+
+
 
 ### 📌 Tarefas Pendentes  
 - [x] Criar README  
