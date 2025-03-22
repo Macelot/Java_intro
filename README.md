@@ -13,7 +13,7 @@
 - [6. Resumo de Conceitos](#6-resumo-de-conceitos)
 
 ### Parte 2
-- [7. Comparator e Comparable em Java](#7comparator-e-comparable-em-java)
+- [7. Comparator e Comparable em Java](#7-comparator-e-comparable-em-java)
 
 <p align="center">
   <img src="https://cdn.thedevconf.com.br/photos/James+gosling.png" width="300">
