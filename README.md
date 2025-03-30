@@ -11,8 +11,8 @@
   - [Abstração, Encapsulamento e Polimorfismo](#abstração-encapsulamento-e-polimorfismo)
 - [5. Exemplo Prático](#5-exemplo-prático)
 - [6. Resumo de Conceitos](#6-resumo-de-conceitos)
-- [7. Mão na massa] (https://github.com/Macelot/java-lista01)
-- [8. Exemplo básicão] (https://github.com/Macelot/java-sistema-menu/)
+- [Mão na massa] (https://github.com/Macelot/java-lista01)
+- [Exemplo básicão] (https://github.com/Macelot/java-sistema-menu/)
 
 ### Parte 2
 - [7. Comparator e Comparable em Java](#7-comparator-e-comparable-em-java)
