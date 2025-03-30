@@ -220,13 +220,12 @@ Agora você entende a importância das interfaces `Comparable` e `Comparator` e 
 **Boa codificação!** 🖥️
 
 ---
-
-# Guia de Boas Práticas em Java
+## 8. Boas Práticas
 
 ## Introdução
 Ser um bom desenvolvedor de software em Java exige estudo e o domínio de conceitos e convenções para manter um código limpo, legível e fácil de manter. As boas práticas ajudam a aumentar a produtividade, reduzir a complexidade, minimizar bugs e padronizar convenções entre os desenvolvedores.
 
-## 8. Nomear Variáveis e Métodos de Forma Descritiva
+## Nomear Variáveis e Métodos de Forma Descritiva
 Os nomes de variáveis, classes e métodos devem refletir sua funcionalidade.
 
 ```java
