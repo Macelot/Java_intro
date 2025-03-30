@@ -16,6 +16,7 @@
 
 ### Parte 2
 - [7. Comparator e Comparable em Java](#7-comparator-e-comparable-em-java)
+- [8. Boas Práticas](#8-boas-práticas)
 
 <p align="center">
   <img src="https://cdn.thedevconf.com.br/photos/James+gosling.png" width="300">
@@ -218,6 +219,189 @@ Agora você entende a importância das interfaces `Comparable` e `Comparator` e 
 
 **Boa codificação!** 🖥️
 
+---
+
+# Guia de Boas Práticas em Java
+
+## Introdução
+Ser um bom desenvolvedor de software em Java exige estudo e o domínio de conceitos e convenções para manter um código limpo, legível e fácil de manter. As boas práticas ajudam a aumentar a produtividade, reduzir a complexidade, minimizar bugs e padronizar convenções entre os desenvolvedores.
+
+## 8. Nomear Variáveis e Métodos de Forma Descritiva
+Os nomes de variáveis, classes e métodos devem refletir sua funcionalidade.
+
+```java
+int idadePessoa = 25;
+String nomeCompleto = "João Silva";
+public double calcularSalario(double salarioBase) {
+    return salarioBase * 1.1;
+}
+```
+
+Evite abreviações excessivas e não use underscores para nomes de variáveis comuns.
+
+## 9. Evite Código "Hadouken"
+Funções devem ser pequenas e claras, com baixa complexidade.
+
+```java
+public boolean isAdulto(int idade) {
+    return idade >= 18;
+}
+```
+
+<p align="center">
+  <img src="hadouken.webp" width="300">
+</p>
+
+Evite condicionais aninhadas e blocos de código extensos.
+
+## 10. Comentários Apenas Quando Necessário
+Prefira nomes descritivos a comentários excessivos e use Javadoc para documentar métodos.
+
+```java
+/**
+ * Calcula a área de um círculo.
+ * @param raio O raio do círculo
+ * @return A área calculada
+ * @throws IllegalArgumentException Se o raio for negativo
+ * @since 1.0
+ */
+public double calcularArea(double raio) {
+    if (raio < 0) {
+        throw new IllegalArgumentException("O raio não pode ser negativo");
+    }
+    return Math.PI * Math.pow(raio, 2);
+}
+```
+
+## 11. Don't Repeat Yourself (DRY)
+Evite repetição de código, reutilizando métodos.
+
+```java
+public double calcularDesconto(double valor, double percentual) {
+    return valor * (1 - percentual / 100);
+}
+```
+
+## 12. Programação Defensiva
+Trate exceções e evite uso de `null` desnecessário.
+
+```java
+/**
+ * Realiza a divisão entre dois números inteiros.
+ * @param a O numerador
+ * @param b O denominador
+ * @return O resultado da divisão
+ * @throws IllegalArgumentException Se o denominador for zero
+ */
+public double dividir(int a, int b) {
+    if (b == 0) {
+        throw new IllegalArgumentException("Divisão por zero não permitida");
+    }
+    return (double) a / b;
+}
+```
+
+## 13. Design Patterns
+Utilize padrões de projeto para tornar o código mais estruturado.
+
+**Exemplo do Padrão Builder:**
+
+```java
+/**
+ * Representa uma pessoa com nome e idade.
+ * @author Desenvolvedor
+ * @version 1.0
+ */
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    private Pessoa(Builder builder) {
+        this.nome = builder.nome;
+        this.idade = builder.idade;
+    }
+
+    public static class Builder {
+        private String nome;
+        private int idade;
+
+        /**
+         * Define o nome da pessoa.
+         * @param nome Nome da pessoa
+         * @return O próprio Builder para encadeamento
+         */
+        public Builder setNome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        /**
+         * Define a idade da pessoa.
+         * @param idade Idade da pessoa
+         * @return O próprio Builder para encadeamento
+         */
+        public Builder setIdade(int idade) {
+            this.idade = idade;
+            return this;
+        }
+
+        /**
+         * Cria uma nova instância de Pessoa.
+         * @return Uma nova Pessoa configurada
+         */
+        public Pessoa build() {
+            return new Pessoa(this);
+        }
+    }
+}
+```
+
+## 14. Recursos Modernos do Java
+
+### Expressões Lambda
+
+```java
+List<String> nomes = Arrays.asList("Ana", "Carlos", "Bruna");
+nomes.forEach(nome -> System.out.println(nome));
+```
+
+### Stream API
+
+```java
+List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> pares = numeros.stream()
+                             .filter(n -> n % 2 == 0)
+                             .collect(Collectors.toList());
+```
+
+### Date and Time API
+
+```java
+LocalDate hoje = LocalDate.now();
+LocalDate dataFutura = hoje.plusDays(10);
+```
+
+### Geração de Javadoc
+
+Para gerar o Javadoc de um projeto, utilize o comando:
+
+```
+javadoc -d doc MeuArquivo.java
+```
+
+Isso criará uma documentação HTML baseada nos comentários `/** */` do código.
+
+## 15. Conclusão
+Seguir boas práticas de desenvolvimento melhora a qualidade, manutenção e legibilidade do código. Adote convenções de nomenclatura, evite repetições, trate exceções corretamente e utilize padrões de projeto para um código mais organizado e eficiente.
+
+javadoc Concatena.java
+javadoc -d ../docs Concatena.java
+
+javadoc -sourcepath src\main\java -d docs -subpackages .
+
+
+
+---
 
 
 ### 📌 Tarefas Pendentes  
