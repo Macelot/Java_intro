@@ -200,6 +200,11 @@ public class TesteComparator {
 ### 🧑‍🎓 **Explicação:**
 - `Comparator` permite ordenar por nome, independentemente da lógica de preço existente.
 - `produtos.sort()` aceita um comparador como argumento.
+- para ordenar de forma DECRESCENTE:
+
+```java
+produtos.sort(new ComparadorPorNome().reversed);
+```
 
 ---
 
