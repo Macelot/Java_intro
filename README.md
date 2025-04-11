@@ -1,23 +1,23 @@
 ## Sumário
 
 ### Parte 1
-- [Introdução ao Java](#introdução-ao-java)
-- [Estrutura Básica de um Programa Java](#estrutura-básica-de-um-programa-java)
+- [Introdução ao Java](#introducao-ao-java)
+- [Estrutura Básica de um Programa Java](#estrutura-basica-de-um-programa-java)
 - [Plataforma Java](#plataforma-java)
-- [Conceitos de Orientação a Objetos](#conceitos-de-orientação-a-objetos)
+- [Conceitos de Orientação a Objetos](#conceitos-de-orientacao-a-objetos)
   - [Objeto](#objeto)
   - [Classe](#classe)
-  - [Abstração, Encapsulamento e Polimorfismo](#abstração-encapsulamento-e-polimorfismo)
-- [Exemplo Prático](#exemplo-prático)
+  - [Abstração, Encapsulamento e Polimorfismo](#abstracaoo-encapsulamento-e-polimorfismo)
+- [Exemplo Prático](#exemplo-pratico)
 - [Resumo de Conceitos](#resumo-de-conceitos)
 - [Mão na massa](https://github.com/Macelot/java-lista01)
 - [Exemplo básicão](https://github.com/Macelot/java-sistema-menu/)
 
 ### Parte 2
 - [Comparator e Comparable em Java](#comparator-e-comparable-em-java)
-- [Boas Práticas](#boas-práticas)
-- [Evite Código "Hadouken"](#evite-código-hadouken)
-- [Comentários Apenas Quando Necessário](#comentários-apenas-quando-necessário)
+- [Boas Práticas](#boas-praticas)
+- [Evite Código "Hadouken"](#evite-codigo-hadouken)
+- [Comentários Apenas Quando Necessário](#comentarios-apenas-quando-necessario)
 - [Leitura e Escrita de Arquivos em Java](#leitura-e-escrita-de-arquivos-em-java)
   
 ---
