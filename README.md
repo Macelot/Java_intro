@@ -1,22 +1,36 @@
 # Introdução ao Java
+Para evitar a necessidade de numerar manualmente os itens do sumário e manter o conteúdo organizado, você pode remover a numeração dos títulos e referências. O Markdown continuará funcionando corretamente, desde que os links (âncoras) estejam coerentes com os títulos das seções. Abaixo está a versão corrigida do sumário:
+
+---
 
 ## Sumário
+
 ### Parte 1
-- [1. Introdução ao Java](#1-introdução-ao-java)
-- [2. Estrutura Básica de um Programa Java](#2-estrutura-básica-de-um-programa-java)
-- [3. Plataforma Java](#3-plataforma-java)
-- [4. Conceitos de Orientação a Objetos](#4-conceitos-de-orientação-a-objetos)
+- [Introdução ao Java](#introdução-ao-java)
+- [Estrutura Básica de um Programa Java](#estrutura-básica-de-um-programa-java)
+- [Plataforma Java](#plataforma-java)
+- [Conceitos de Orientação a Objetos](#conceitos-de-orientação-a-objetos)
   - [Objeto](#objeto)
   - [Classe](#classe)
   - [Abstração, Encapsulamento e Polimorfismo](#abstração-encapsulamento-e-polimorfismo)
-- [5. Exemplo Prático](#5-exemplo-prático)
-- [6. Resumo de Conceitos](#6-resumo-de-conceitos)
-- [Mão na massa] (https://github.com/Macelot/java-lista01)
-- [Exemplo básicão] (https://github.com/Macelot/java-sistema-menu/)
+- [Exemplo Prático](#exemplo-prático)
+- [Resumo de Conceitos](#resumo-de-conceitos)
+- [Mão na massa](https://github.com/Macelot/java-lista01)
+- [Exemplo básicão](https://github.com/Macelot/java-sistema-menu/)
 
 ### Parte 2
-- [7. Comparator e Comparable em Java](#7-comparator-e-comparable-em-java)
-- [8. Boas Práticas](#8-boas-práticas)
+- [Comparator e Comparable em Java](#comparator-e-comparable-em-java)
+- [Boas Práticas](#boas-práticas)
+- [Evite Código "Hadouken"](#evite-código-hadouken)
+- [Comentários Apenas Quando Necessário](#comentários-apenas-quando-necessário)
+- [Leitura e Escrita de Arquivos em Java](#leitura-e-escrita-de-arquivos-em-java)
+
+---
+
+Com essa organização, não será necessário renumerar os itens quando adicionar ou remover tópicos. O uso de títulos com `##` e `###` no corpo do documento continua funcionando normalmente com os links internos (âncoras).
+
+Se desejar, posso revisar os títulos internos também para garantir que os links estejam 100% funcionais de acordo com a nova estrutura. Deseja que eu revise isso também?
+
 
 <p align="center">
   <img src="https://cdn.thedevconf.com.br/photos/James+gosling.png" width="300">
@@ -406,6 +420,143 @@ javadoc -sourcepath src\main\java -d docs -subpackages .
 
 
 ---
+
+## 11. Leitura e Escrita de Arquivos em Java
+
+### Introdução
+Manipular arquivos é uma habilidade essencial para qualquer desenvolvedor. Em Java, é possível realizar operações de leitura e escrita com diversas classes da API `java.io` e `java.nio`.
+
+---
+
+### Leitura de Arquivo Texto com `BufferedReader`
+
+```java
+import java.io.*;
+
+public class LeitorArquivo {
+    public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new FileReader("dados.txt"))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                System.out.println(linha);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+### Escrita de Arquivo Texto com `BufferedWriter`
+
+```java
+import java.io.*;
+
+public class EscritorArquivo {
+    public static void main(String[] args) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("saida.txt"))) {
+            bw.write("Escrevendo no arquivo com Java!");
+            bw.newLine();
+            bw.write("Segunda linha.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+### Leitura e Escrita com `Files` (Java NIO)
+
+```java
+import java.nio.file.*;
+import java.io.IOException;
+import java.util.List;
+
+public class FilesExemplo {
+    public static void main(String[] args) throws IOException {
+        // Escrevendo
+        Path path = Paths.get("exemplo.txt");
+        Files.write(path, "Conteúdo via NIO".getBytes());
+
+        // Lendo
+        List<String> linhas = Files.readAllLines(path);
+        linhas.forEach(System.out::println);
+    }
+}
+```
+
+---
+
+### Escrita em Arquivo CSV
+
+```java
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+public class EscritaCSV {
+    public static void main(String[] args) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("produtos.csv"))) {
+            pw.println("id,nome,preco");
+            pw.println("1,Notebook,3200.00");
+            pw.println("2,Mouse,80.00");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+---
+
+### Leitura de JSON com Biblioteca Externa (Gson)
+
+```java
+import com.google.gson.*;
+import java.io.FileReader;
+
+class Produto {
+    String nome;
+    double preco;
+}
+
+public class LeituraJSON {
+    public static void main(String[] args) {
+        try {
+            Gson gson = new Gson();
+            Produto p = gson.fromJson(new FileReader("produto.json"), Produto.class);
+            System.out.println(p.nome + " custa R$ " + p.preco);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+> Para usar a biblioteca **Gson**, adicione a dependência:
+```xml
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.8.9</version>
+</dependency>
+```
+
+---
+
+### Boas Práticas
+- Use **try-with-resources** sempre que possível.
+- Feche arquivos corretamente para evitar vazamentos de recursos.
+- Para arquivos grandes, utilize `BufferedReader/BufferedWriter` para maior desempenho.
+- Use bibliotecas especializadas como **Gson** ou **Jackson** para leitura de JSON.
+
+
+---
+
 
 
 ### 📌 Tarefas Pendentes  
