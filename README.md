@@ -30,13 +30,13 @@ Se desejar, posso revisar os títulos internos também para garantir que os link
   <img src="https://cdn.thedevconf.com.br/photos/James+gosling.png" width="300">
 </p>
 
-## 1. Introdução ao Java
+## Introdução ao Java
 O Java é uma linguagem de programação que opera na Java Virtual Machine (JVM), que converte bytecode em instruções compreensíveis pelo sistema operacional. O conceito "Write Once, Run Anywhere" permite que programas Java sejam escritos uma única vez e executados em diferentes plataformas, garantindo portabilidade.
 
-## 2. Estrutura Básica de um Programa Java
+## Estrutura Básica de um Programa Java
 Um programa em Java é formado por classes e métodos, sendo as classes a principal unidade de encapsulamento. Elas podem conter variáveis de instância e métodos que definem o comportamento dos objetos criados.
 
-## 3. Plataforma Java
+## Plataforma Java
 O Java é suportado por um compilador e uma máquina virtual que funcionam em diversos sistemas operacionais.
 
 | Tecnologia | Descrição |
@@ -46,7 +46,7 @@ O Java é suportado por um compilador e uma máquina virtual que funcionam em di
 | Spring    | Framework para desenvolvimento web |
 
 
-## 4. Conceitos de Orientação a Objetos
+## Conceitos de Orientação a Objetos
 
 ### Objeto
 Unidade básica de orientação a objetos com atributos e comportamento.
@@ -60,7 +60,7 @@ Conceitos fundamentais da programação orientada a objetos, onde:
 - **Encapsulamento** esconde questões internas de implementação.
 - **Polimorfismo** permite que diferentes classes implementem métodos comuns de maneiras diversas.
 
-## 5. Exemplo Prático
+## Exemplo Prático
 A aplicação prática é demonstrada com um sistema de pagamento onde uma classe base `Pagamento` é criada, permitindo a implementação de diferentes formas de pagamento sem modificar o código principal.
 ```java
 abstract class Pagamento {
@@ -82,7 +82,7 @@ class Pix extends Pagamento {
 }
 ```
 
-## 6. Resumo de Conceitos
+## Resumo de Conceitos
 
 - **Método**: Operações executadas sobre objetos.
 - **Estado**: Valores atuais dos atributos de um objeto, resultado de seu comportamento ao longo do tempo.
@@ -102,7 +102,7 @@ public class Main {
 ---
 # Parte2 
 
-## 7. Comparator e Comparable em Java
+## Comparator e Comparable em Java
 
 ## 🧑‍💻 **Conteúdo Programático**
 1. O que são Comparable e Comparator?
@@ -233,7 +233,7 @@ Agora você entende a importância das interfaces `Comparable` e `Comparator` e 
 **Boa codificação!** 🖥️
 
 ---
-## 8. Boas Práticas
+## Boas Práticas
 
 ## Introdução
 Ser um bom desenvolvedor de software em Java exige estudo e o domínio de conceitos e convenções para manter um código limpo, legível e fácil de manter. As boas práticas ajudam a aumentar a produtividade, reduzir a complexidade, minimizar bugs e padronizar convenções entre os desenvolvedores.
@@ -251,7 +251,7 @@ public double calcularSalario(double salarioBase) {
 
 Evite abreviações excessivas e não use underscores para nomes de variáveis comuns.
 
-## 9. Evite Código "Hadouken"
+## Evite Código "Hadouken"
 Funções devem ser pequenas e claras, com baixa complexidade.
 
 ```java
@@ -266,7 +266,7 @@ public boolean isAdulto(int idade) {
 
 Evite condicionais aninhadas e blocos de código extensos.
 
-## 10. Comentários Apenas Quando Necessário
+## Comentários Apenas Quando Necessário
 Prefira nomes descritivos a comentários excessivos e use Javadoc para documentar métodos.
 
 ```java
@@ -285,7 +285,7 @@ public double calcularArea(double raio) {
 }
 ```
 
-## 11. Don't Repeat Yourself (DRY)
+## Don't Repeat Yourself (DRY)
 Evite repetição de código, reutilizando métodos.
 
 ```java
@@ -294,7 +294,7 @@ public double calcularDesconto(double valor, double percentual) {
 }
 ```
 
-## 12. Programação Defensiva
+## Programação Defensiva
 Trate exceções e evite uso de `null` desnecessário.
 
 ```java
@@ -313,7 +313,7 @@ public double dividir(int a, int b) {
 }
 ```
 
-## 13. Design Patterns
+## Design Patterns
 Utilize padrões de projeto para tornar o código mais estruturado.
 
 **Exemplo do Padrão Builder:**
@@ -368,7 +368,7 @@ public class Pessoa {
 }
 ```
 
-## 14. Recursos Modernos do Java
+## Recursos Modernos do Java
 
 ### Expressões Lambda
 
@@ -403,7 +403,7 @@ javadoc -d doc MeuArquivo.java
 
 Isso criará uma documentação HTML baseada nos comentários `/** */` do código.
 
-## 15. Conclusão
+## Conclusão
 Seguir boas práticas de desenvolvimento melhora a qualidade, manutenção e legibilidade do código. Adote convenções de nomenclatura, evite repetições, trate exceções corretamente e utilize padrões de projeto para um código mais organizado e eficiente.
 
 javadoc Concatena.java
@@ -413,7 +413,7 @@ javadoc -sourcepath src\main\java -d docs -subpackages .
 
 ---
 
-## 16. Leitura e Escrita de Arquivos em Java
+## Leitura e Escrita de Arquivos em Java
 
 ### Introdução
 Manipular arquivos é uma habilidade essencial para qualquer desenvolvedor. Em Java, é possível realizar operações de leitura e escrita com diversas classes da API `java.io` e `java.nio`.
