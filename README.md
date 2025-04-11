@@ -550,7 +550,6 @@ public class LeituraJSON {
 ---
 
 
-
 ### 📌 Tarefas Pendentes  
 - [x] Criar README  
 - [x] Adicionar Sumário  
