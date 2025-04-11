@@ -4,7 +4,7 @@
 - [Introdução ao Java](#introducao-ao-java)
 - [Estrutura Básica de um Programa Java](#estrutura-basica-de-um-programa-java)
 - [Plataforma Java](#plataforma-java)
-- [Conceitos de Orientação a Objetos](#conceitos-de-orientacao-a-objetos)
+- [Conceitos de Orientação a Objetos](#conceitos-de-orientação-a-objetos)
   - [Objeto](#objeto)
   - [Classe](#classe)
   - [Abstração, Encapsulamento e Polimorfismo](#abstracaoo-encapsulamento-e-polimorfismo)
