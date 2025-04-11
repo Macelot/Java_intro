@@ -1,8 +1,3 @@
-# Introdução ao Java
-Para evitar a necessidade de numerar manualmente os itens do sumário e manter o conteúdo organizado, você pode remover a numeração dos títulos e referências. O Markdown continuará funcionando corretamente, desde que os links (âncoras) estejam coerentes com os títulos das seções. Abaixo está a versão corrigida do sumário:
-
----
-
 ## Sumário
 
 ### Parte 1
@@ -24,9 +19,8 @@ Para evitar a necessidade de numerar manualmente os itens do sumário e manter o
 - [Evite Código "Hadouken"](#evite-código-hadouken)
 - [Comentários Apenas Quando Necessário](#comentários-apenas-quando-necessário)
 - [Leitura e Escrita de Arquivos em Java](#leitura-e-escrita-de-arquivos-em-java)
-
+  
 ---
-
 Com essa organização, não será necessário renumerar os itens quando adicionar ou remover tópicos. O uso de títulos com `##` e `###` no corpo do documento continua funcionando normalmente com os links internos (âncoras).
 
 Se desejar, posso revisar os títulos internos também para garantir que os links estejam 100% funcionais de acordo com a nova estrutura. Deseja que eu revise isso também?
@@ -417,11 +411,9 @@ javadoc -d ../docs Concatena.java
 
 javadoc -sourcepath src\main\java -d docs -subpackages .
 
-
-
 ---
 
-## 11. Leitura e Escrita de Arquivos em Java
+## 16. Leitura e Escrita de Arquivos em Java
 
 ### Introdução
 Manipular arquivos é uma habilidade essencial para qualquer desenvolvedor. Em Java, é possível realizar operações de leitura e escrita com diversas classes da API `java.io` e `java.nio`.
