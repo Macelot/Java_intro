@@ -18,6 +18,7 @@
 - [Boas Práticas](#boas-práticas)
 - [Evite Código "Hadouken"](#evite-código-hadouken)
 - [Comentários Apenas Quando Necessário](#comentários-apenas-quando-necessário)
+- [Menu de acesso e exemplo em arquivos](#menu-de-acesso-e-exemplo-em-arquivos)
 - [Leitura e Escrita de Arquivos em Java](#leitura-e-escrita-de-arquivos-em-java)
   
 ---
@@ -412,6 +413,149 @@ javadoc -d ../docs Concatena.java
 javadoc -sourcepath src\main\java -d docs -subpackages .
 
 ---
+
+## Menu de acesso e exemplo em arquivos
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+    static App app = new App();
+    public static void main(String[] args) throws Exception {
+        System.out.println("Bem vindo ao sistema de arquivos");
+        Scanner teclado = new Scanner(System.in);
+        while(true){
+            System.out.println("Escolha uma opção");
+            System.out.println("Escrever no arquivo...1");
+            System.out.println("Anexar no arquivo.....2");
+            System.out.println("Ler primeira linha....3");
+            System.out.println("Ler todas linhas......4");
+            System.out.println("Ler todas linhas DESC.5");
+            System.out.println("Buscar no arquivo.....6");
+            System.out.println("Sair..................9");
+            System.out.println("Escolha uma opção....:");
+            int op = teclado.nextInt();
+            teclado.nextLine();
+            System.out.println("..");
+            switch (op) {
+                case 1:
+                    app.escreve(false,"");
+                    break;
+                case 2:
+                    app.escreve(true,"Teste");
+                    break;
+                case 3:
+                    app.lePrimeira();
+                    break;
+                case 4:
+                    app.leTodas();
+                    break;
+                case 5:
+                    app.leTodasDesc();
+                    break;
+                case 6:
+                    app.busca();
+                    break;     
+                case 9:
+                    teclado.close();
+                    System.exit(0);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        
+        //escrevendo em arquivo;
+    }
+    public void escreve(Boolean tipo, String conteudo){
+       try {
+            FileWriter filew;
+            filew = new FileWriter("arquivo.txt",tipo);
+            filew.write(conteudo);
+            filew.write("\n");
+            filew.close();  
+       } catch (IOException e) {
+            System.out.println("Erro "+e.getMessage());
+       }
+    }
+    public void lePrimeira(){
+        try {
+            FileReader filer = new FileReader("arquivo.txt");
+            BufferedReader buffer = new BufferedReader(filer);
+            String line = buffer.readLine();
+            System.out.println(line);
+            buffer.close();
+        } catch (Exception e) {
+            System.out.println("Erro "+e.getMessage());
+        }
+    }
+    public void leTodas(){
+        try {
+            FileReader filer = new FileReader("arquivo.txt");
+            BufferedReader buffer = new BufferedReader(filer);
+            String line = buffer.readLine();
+            while(line!=null){
+                System.out.println(line);
+                line =  buffer.readLine();
+            }
+            buffer.close();
+        } catch (Exception e) {
+            System.out.println("Erro "+e.getMessage());
+        }
+    }
+    public void leTodasDesc(){
+        ArrayList<String> conteudo = new ArrayList<>();
+        try {
+            FileReader filer = new FileReader("arquivo.txt");
+            BufferedReader buffer = new BufferedReader(filer);
+            String line = buffer.readLine();
+            while(line!=null){
+                conteudo.add(line);
+                line =  buffer.readLine();
+            }
+            for (int i = conteudo.size()-1; i >=0; i--) {
+                System.out.println(conteudo.get(i));
+            }
+            buffer.close();
+        } catch (Exception e) {
+            System.out.println("Erro "+e.getMessage());
+        }
+    }
+    public void busca(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite o que deseja");
+        String busca = teclado.nextLine();
+        try {
+            FileReader filer = new FileReader("arquivo.txt");
+            BufferedReader buffer = new BufferedReader(filer);
+            String line = buffer.readLine();
+            String dia;
+            String[] tudo;
+            while(line!=null){
+                tudo = line.split(" ");
+                dia = tudo[0];
+                if(busca.equals(dia)){
+                    System.out.println(tudo[1]);
+                    break;
+                }
+                line =  buffer.readLine();
+            }
+            System.out.println("Valor "+busca+" não encontrado no arquivo");
+            buffer.close();
+            teclado.close();		
+        } catch (Exception e) {
+            System.out.println("Erro "+e.getMessage());
+        }
+
+    }
+}
+```
+
 
 ## Leitura e Escrita de Arquivos em Java
 
