@@ -682,6 +682,17 @@ public class LeituraJSON {
 </dependency>
 ```
 
+Código para ler uma lista:
+
+```java
+Type produtoListType = new TypeToken<List<Produto>>() {}.getType();
+List<Produto> produtos = gson.fromJson(new FileReader("produtos.json"), produtoListType);
+for (Produto p : produtos) {
+    System.out.println(p.nome + " custa R$ " + p.preco);
+}
+
+```
+
 ---
 
 ### Boas Práticas
